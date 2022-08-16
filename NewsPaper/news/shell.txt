@@ -44,17 +44,11 @@ Post.objects.get(id=3).dislike()
 Comment.objects.get(id=3).like()
 Comment.objects.get(id=4).dislike() x2
 Autor.objects.get(id=1).update_rating()
-Autor.objects.get(id=2).update_rating()!!!!!
-
-<Traceback (most recent call last):
-  File "<console>", line 1, in <module>
-  File "C:\Users\Полина\projects\NewsDjangoProject\NewsPaper\news\models.py", line 23, in update_rating
-    pRat += postRat.get('postRating')
-TypeError: unsupported operand type(s) for +=: 'int' and 'NoneType'>
-
-Вывести username и рейтинг лучшего пользователя (применяя сортировку и возвращая поля первого объекта).
-Вывести дату добавления, username автора, рейтинг, заголовок и превью лучшей статьи, основываясь на лайках/дислайках к этой статье.
-Вывести все комментарии (дата, пользователь, рейтинг, текст) к этой статье.
+autor =Autor.objects.get(id=2)
+Post.objects.create(PostAutor=autor, Choise='NW', header='Author2news', text='sometextAuthot2')
+Post.objects.get(id=4)._postcategory.add(Category.objects.get(id=1))
+Post.objects.get(id=4).like()
+Autor.objects.get(id=2).update_rating()
 
 a = Autor.objects.order_by('-ratingAutor')[:1]
 
